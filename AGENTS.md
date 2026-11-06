@@ -2,7 +2,11 @@
 
 ## Project Structure & Module Organization
 
-This repository is a small React expense tracker built with Vite. Application components and entry point are in `src/` (`App.jsx` and `main.jsx`); component and global styles are in `src/App.css` and `src/index.css`. Place imported source assets in `src/assets/` and static files served directly in `public/`. There is currently no test directory or test framework.
+This repository is a small React expense tracker built with Vite. The application entry point is `src/main.jsx`; `src/App.jsx` composes the main screen. Feature components live in `src/components/`, shared category values in `src/constants/categories.js`, and styles in `src/App.css` and `src/index.css`. Place imported source assets in `src/assets/` and static files served directly in `public/`. There is currently no test directory or test framework.
+
+## Architecture Overview
+
+`App` owns the transaction collection and adds validated transactions through a callback. `Summary` derives income, expenses, and balance from that collection. `TransactionForm` owns its input state and submits a normalized transaction to `App`; `TransactionList` owns its type and category filters and renders matching rows. Keep the category options centralized in `src/constants/categories.js` so the form and list use the same values. Pass data and callbacks through props rather than sharing feature state between components.
 
 ## Build, Test, and Development Commands
 
