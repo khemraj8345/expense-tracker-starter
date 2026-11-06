@@ -33,3 +33,14 @@ The available Git history contains only an initial commit, so no established com
 ## Security & Configuration
 
 Do not commit credentials, tokens, or local environment files. Keep dependencies managed through `package.json` and `package-lock.json`; review dependency changes before including them.
+
+## Resource Attribution Enforcement
+
+When executing Google Cloud CLI commands in this repository or workspace, apply appropriate attribution labels:
+
+- **BigQuery CLI (`bq`)**: Add `--label datacloud:antigravity` to subcommands that accept resource or job labels (`query`, `load`, `extract`, `mk`, `update`, `cp`). Do not add `--label` to unsupported subcommands (`show`, `ls`, `rm`, `head`, `cancel`, `version`).
+- **Google Cloud SDK (`gcloud`)**: Prepend all `gcloud` commands with the metric environment variable:
+  ```bash
+  CLOUDSDK_METRICS_ENVIRONMENT="${CLOUDSDK_METRICS_ENVIRONMENT:+$CLOUDSDK_METRICS_ENVIRONMENT }datacloud.antigravity"
+  ```
+

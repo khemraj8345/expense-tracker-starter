@@ -146,3 +146,177 @@ th {
   font-size: 12px;
   color: #333;
 }
+
+.category-chart-card {
+  border: 1px solid #ddd;
+  padding: 18px;
+  margin-bottom: 24px;
+  background: #fff;
+}
+
+.category-chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.category-chart-header h2 {
+  font-size: 16px;
+  margin: 0;
+}
+
+.category-total-badge {
+  font-size: 13px;
+  color: #555;
+  background: #f3f4f6;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+.category-total-badge strong {
+  color: #111827;
+}
+
+.no-data-msg {
+  color: #888;
+  font-size: 14px;
+  padding: 12px 0;
+}
+
+.bar-chart-container {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.bar-chart-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+
+.y-axis-label {
+  font-size: 11px;
+  fill: #6b7280;
+  font-family: inherit;
+}
+
+.bar-group {
+  cursor: pointer;
+  outline: none;
+}
+
+.bar-rect {
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.bar-rect-hovered {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+}
+
+.bar-amount-label {
+  font-size: 11px;
+  transition: fill 0.2s ease;
+  font-family: inherit;
+}
+
+.bar-category-label {
+  font-size: 11px;
+  fill: #4b5563;
+  text-transform: capitalize;
+  font-family: inherit;
+}
+
+.chart-active-detail {
+  min-height: 28px;
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.active-detail-content {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+.active-category-name {
+  font-weight: 600;
+  text-transform: capitalize;
+  color: #1f2937;
+}
+
+.active-category-amount {
+  font-weight: bold;
+  color: #111827;
+}
+
+.active-category-pct {
+  color: #6b7280;
+}
+
+.chart-hint-text {
+  font-size: 12px;
+  color: #9ca3af;
+  font-style: italic;
+}
+
+.category-legend-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 8px;
+  border-top: 1px solid #f0f0f0;
+  padding-top: 14px;
+}
+
+.legend-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  font-size: 12px;
+  background: #fafafa;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.legend-chip:hover,
+.legend-chip-active {
+  background-color: #f3f4f6;
+  border-color: #9ca3af;
+}
+
+.category-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.chip-name {
+  text-transform: capitalize;
+  font-weight: 500;
+  color: #374151;
+}
+
+.chip-amount {
+  font-weight: 600;
+  color: #111827;
+  margin-left: auto;
+}
+
+.chip-pct {
+  font-size: 11px;
+  color: #6b7280;
+}

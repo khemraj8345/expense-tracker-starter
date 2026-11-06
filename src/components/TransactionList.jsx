@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { TRANSACTION_CATEGORIES } from '../constants/categories.js'
 
-function TransactionList({ transactions }) {
+function TransactionList({ transactions, onDeleteTransaction }) {
   const [filterType, setFilterType] = useState("all")
   const [filterCategory, setFilterCategory] = useState("all")
 
@@ -35,6 +35,7 @@ function TransactionList({ transactions }) {
             <th>Description</th>
             <th>Category</th>
             <th>Amount</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -45,6 +46,20 @@ function TransactionList({ transactions }) {
               <td>{transaction.category}</td>
               <td className={transaction.type === "income" ? "income-amount" : "expense-amount"}>
                 {transaction.type === "income" ? "+" : "-"}${transaction.amount}
+              </td>
+              <td>
+                <button
+                  className="delete-btn"
+                  type="button"
+                  aria-label={`Delete ${transaction.description}`}
+                  onClick={() => {
+                    if (window.confirm(`Delete "${transaction.description}"?`)) {
+                      onDeleteTransaction(transaction.id)
+                    }
+                  }}
+                >
+                  Delete
+                </button>
               </td>
             </tr>
           ))}
